@@ -7,7 +7,11 @@ set shortmess+=I		" Disable the welcome screen
 set mouse=a			" Use mouse in all cases
 set autoindent			" Automatic indenting
 set copyindent			" Copy previous indenting
+set expandtab     " Make tabs into spaces
+set tabstop=2			" Change tab size to two spaces
+set shiftwidth=2  " Change increment size to two spaces
 set showcmd			" Show command being typed
+set wildmode=longest,list,full " Base like completion
 set wildmenu			" Command completion list
 set clipboard=unnamed		" Unnamed register is X PRIMARY clipboard
 set linebreak			" Wrap lines without cutting words
@@ -18,9 +22,6 @@ set hidden			" Make buffers hide instead of closing
 syntax on			" Syntax highlighting
 set pastetoggle=<F2>		" Toggle autoindenting
 set ofu=syntaxcomplete#Complete " Omni completion
-set tabstop=2			" Change increment size to two spaces
-set shiftwidth=2
-set expandtab
 set background=dark
 
 " ### Status line ###
