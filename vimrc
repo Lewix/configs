@@ -17,8 +17,11 @@ set noswapfile
 set hidden			" Make buffers hide instead of closing
 syntax on			" Syntax highlighting
 set pastetoggle=<F2>		" Toggle autoindenting
-
-
+set ofu=syntaxcomplete#Complete " Omni completion
+set tabstop=2			" Change increment size to two spaces
+set shiftwidth=2
+set expandtab
+set background=dark
 
 " ### Status line ###
 set laststatus=2
@@ -26,7 +29,7 @@ set statusline=%#CursorIM#\"%F\"\ %#ErrorMsg#%m%#CursorIM#\ %y%=%l,%c\ %P
 
 " ### GUI dependant ###
 if has("gui_running")
-	set guioptions=aegrLT	" Customize GUI options
+	set guioptions=aeg	" Customize GUI options
 	colorscheme zellner	" Uses shine in gui mode
 	" Saving
 	nmap <c-s> :w<CR>
@@ -65,6 +68,10 @@ set matchpairs+=<:>		" Also show matching < and >
 map <silent> <leader>hs :!ghc --make % && %:p:r<CR>
 map <silent> <leader>jc :!javac %<CR>
 
+" =============
+" Java settings
+" =============
+
 
 " ===============
 " Python settings
@@ -95,10 +102,12 @@ let NERDTreeQuitOnOPen=1	" Quit on opening files
 let NERDTreeShowBookmarks=1	" Show bookmarks on startup
 
 " ### Latex-Suite ###
-filetype plugin on		" Activate Latex-Suite when a tex file is opened
+filetype plugin on		" Activate Latex-Suite for Latex files
 filetype indent on              " Enable indenting
+set grepprg=grep\ -nH\ $*
 let g:tex_flavor='latex'        " Set filetype of empty .tex files to 'latex'
 autocmd Filetype tex,latex set grepprg=grep\ -nH\ $*	" Set grep to always display file name
+autocmd Filetype tex,latex set wrapmargin=2 " Break lines for easier editing
 
 " ### Gundo ###
 nnoremap <leader>u :GundoToggle<CR>
