@@ -1,0 +1,14 @@
+Config
+	{ font = "-*-droid sans mono-medium-r-*-*-11-*-*-*-*-*-*-*"
+	, bgColor = "#202020"
+	, fgColor = "#DDDDDD"
+	, position = TopW C 100
+	, commands =
+		[ Run Date "%a %-d %b" "date" 10
+		, Run Date "%k:%M" "time" 10
+		, Run StdinReader
+		]
+	, sepChar = "%"
+	, alignSep = "}{"
+	, template = "%StdinReader% }{ <fc=#6f99b4>%date%</fc>  %time%"
+	}
