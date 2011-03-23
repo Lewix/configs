@@ -6,7 +6,6 @@ import XMonad.Hooks.ManageDocks
 import XMonad.Util.Run(runInTerm, spawnPipe)
 import XMonad.Util.EZConfig(additionalKeys)
 import XMonad.Layout.NoBorders
-import XMonad.Layout.StackTile
 import XMonad.Layout.WorkspaceDir
 import XMonad.Actions.CycleWS
 import XMonad.Prompt
@@ -70,7 +69,7 @@ myNormalBorderColor	= myNormalBGColor
 myFocusedBorderColor	= myFocusedFGColor
 
 -- Layouts --
-myLayoutHook		= smartBorders $ avoidStruts (workspaceDir "~" (StackTile 2 (3/100) (85/100)) ||| workspaceDir "~" (Mirror (Tall 1 (3/100) (85/100))) ||| workspaceDir "/mnt/media/Movies" (Full))
+myLayoutHook		= smartBorders $ avoidStruts (workspaceDir "~" (Tall 1 (3/100) (50/100)) ||| workspaceDir "~" (Mirror (Tall 1 (3/100) (85/100))) ||| workspaceDir "/mnt/media/Movies" (Full))
 
 -- ManageHook --
 myManageHook = manageDocks <+> composeAll
