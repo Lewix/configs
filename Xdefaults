@@ -1,0 +1,55 @@
+!black
+*color0:         #353535
+*color8:         #666666
+!red
+*color1:         #AE4747
+*color9:         #EE6363
+!green
+*color2:         #556B2F
+*color10:        #9ACD32
+!brown/yellow
+*color3:         #DAA520
+*color11:        #FFC125
+!blue
+*color4:         #6F99B4
+*color12:        #7C96B0
+!magenta
+*color5:         #8B7B8B
+*color13:        #D8BFD8
+!cyan
+*color6:         #A7A15E
+*color14:        #F0E68C
+!white
+*color7:         #DDDDDD
+*color15:        #FFFFFF
+
+! Basic appearance
+URxvt.scrollBar:        false
+URxvt.buffered:         true
+*foreground:     #DDDDDD
+*background:     #121212
+!URxvt.background:       white
+!URxvt.foreground:       black
+URxvt.cursorColor:      black
+URxvt.underlineColor:   black
+URxvt.title:            urxvt
+URxvt.geometry:		84x24
+URxvt.font:             xft:Droid Sans Mono:pixelsize=14:antialias=true
+URxvt.boldFont:         xft:Droid Sans Mono:bold:pixelsize=14:antialias=true
+URxvt*scrollTtyOutput:	false
+URxvt*scrollWithBuffer:	false
+
+! Tab appearence
+URxvt.tabbed.tabbar-fg:	4
+URxvt.tabbed.tabbar-bg:	-1
+URxvt.tabbed.tab-fg:	1
+URxvt.tabbed.tab-bg:	-1
+
+
+! Perl extensions
+! URxvt.perl-ext-common:  default,tabbed,matcher
+URxvt.perl-ext-common:  default,matcher
+
+! Clickable links
+URxvt.urlLauncher:	uzbl-browser
+URxvt.matcher.button:	1
