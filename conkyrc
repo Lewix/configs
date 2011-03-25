@@ -1,6 +1,6 @@
 TEXT
 ### MPD Song ###
-${if_mpd_playing}^fg(\#6F99B4)MPD: ^fg()${mpd_artist} - ${mpd_title}${endif}  |  #
+${if_mpd_playing}^fg(\#6F99B4)MPD: ^fg()${mpd_artist} - ${mpd_title}  |${endif}  #
 #
 ### Time and Date ###
 ^fg(\#6F99B4)${execpi 3600 date +"%a %e %b"}^fg() ${execpi 60 date +"%H:%M"}#
