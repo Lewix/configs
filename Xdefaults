@@ -28,14 +28,14 @@ URxvt.scrollBar:        false
 URxvt.buffered:         true
 *foreground:     #DDDDDD
 *background:     #121212
-!URxvt.background:       white
-!URxvt.foreground:       black
+dzen2.foreground:     #DDDDDD
+dzen2.background:     #202020
 URxvt.cursorColor:      black
 URxvt.underlineColor:   black
 URxvt.title:            urxvt
 URxvt.geometry:		84x24
-URxvt.font:             xft:Droid Sans Mono:pixelsize=14:antialias=true
-URxvt.boldFont:         xft:Droid Sans Mono:bold:pixelsize=14:antialias=true
+*font:             xft:Droid Sans Mono:pixelsize=14:antialias=true
+*boldFont:         xft:Droid Sans Mono:bold:pixelsize=14:antialias=true
 URxvt*scrollTtyOutput:	false
 URxvt*scrollWithBuffer:	false
 
