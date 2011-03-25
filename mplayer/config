@@ -1,0 +1,7 @@
+# Write your default config options here!
+
+aspect=16:9	#Stretch 4:3 videos
+fs=1 		#Fullscreen
+ass=1		#Subtitles
+slang=en,eng	#Subtitle language
+really-quiet=1	#Less console output
