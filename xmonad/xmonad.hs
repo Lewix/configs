@@ -34,6 +34,7 @@ main = do
 			{ ppOutput 	= hPutStrLn xmproc
 			, ppCurrent 	= dzenColor myFocusedFGColor ""
 			, ppVisible = dzenColor myNormalFGColor ""
+			, ppUrgent  = dzenColor myUrgentFGColor ""
 			, ppTitle 	= dzenColor myFocusedFGColor "" . shorten 150
 			, ppSep		= "  |  "
 			, ppWsSep	= "  "
@@ -78,9 +79,6 @@ myManageHook = manageDocks <+> composeAll
 	, title 		=? "irssi" 			--> doF (W.shift "irssi")
 	, title			=? "ncmpcpp"		--> doF (W.shift "music")
 	]
-
--- LogHook --
-myLogHook = dynamicLog
 
 -- Prompt config --
 myPromptConfig :: XPConfig
