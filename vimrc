@@ -24,26 +24,12 @@ set pastetoggle=<F2>		" Toggle autoindenting
 set ofu=syntaxcomplete#Complete " Omni completion
 set background=dark
 
+" ### Colors ###
+colorscheme zellner	" BAD choice !!!
+
 " ### Status line ###
 set laststatus=2
 set statusline=%#CursorIM#\"%F\"\ %#ErrorMsg#%m%#CursorIM#\ %y%=%l,%c\ %P
-
-" ### GUI dependant ###
-if has("gui_running")
-	set guioptions=aeg	" Customize GUI options
-	colorscheme zellner	" Uses shine in gui mode
-	" Saving
-	nmap <c-s> :w<CR>
-	imap <c-s> <ESC>:w<CR>a
-	" Clipboard tweaks
-	nmap <c-c> "+yy
-	imap <c-c> <ESC>"+yya
-	vmap <c-c> "+y
-	nmap <c-v> "+p
-	imap <c-v> <ESC>"+pa
-else
-	colorscheme zellner	" Uses desert in console mode
-endif
 
 " ### Mappings ###
 map <down> <ESC>:bn<CR>
@@ -95,12 +81,6 @@ autocmd FileType python set omnifunc=pythoncomplete"Complete    " Code completio
 " Use pathogen to include plugins in the ~/.vim/bundle directory
 "call pathogen#helptags()
 call pathogen#runtime_append_all_bundles()
-
-" ### NERDTree ###
-" Quick access to files with NERDTree
-nmap <leader>n :NERDTreeToggle<CR>
-let NERDTreeQuitOnOPen=1	" Quit on opening files
-let NERDTreeShowBookmarks=1	" Show bookmarks on startup
 
 " ### Latex-Suite ###
 filetype plugin on		" Activate Latex-Suite for Latex files

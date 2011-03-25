@@ -25,13 +25,14 @@ myUrgentFGColor		= "#AE4747"
 
 -- Main --
 main = do
-	xmproc <- spawnPipe "dzen2 -ta l -fn '-*-droid sans-medium-r-*-*-11-*-*-*-*-*-*'"
+	workspaceBar <- spawnPipe "dzen2 -ta l -fn '-*-droid sans-medium-r-*-*-11-*-*-*-*-*-*' -w 500"
+	timeBar <- spawnPipe "conky | dzen2 -ta r -fn '-*-droid sans-medium-r-*-*-11-*-*-*-*-*-*' -x 500"
 
 	xmonad $ defaultConfig
 		{ manageHook 		= myManageHook <+> manageHook defaultConfig
 		, layoutHook 		= myLayoutHook
 		, logHook 		= dynamicLogWithPP $ defaultPP
-			{ ppOutput 	= hPutStrLn xmproc
+			{ ppOutput 	= hPutStrLn workspaceBar
 			, ppCurrent 	= dzenColor myFocusedFGColor ""
 			, ppVisible = dzenColor myNormalFGColor ""
 			, ppUrgent  = dzenColor myUrgentFGColor ""
