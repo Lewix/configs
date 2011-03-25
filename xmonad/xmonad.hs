@@ -25,15 +25,16 @@ myUrgentFGColor		= "#AE4747"
 
 -- Main --
 main = do
-	xmproc <- spawnPipe "xmobar -f '-*-droid sans-medium-r-*-*-11-*-*-*-*-*-*' /home/lewis/.xmonad/xmobarrc"
+	xmproc <- spawnPipe "dzen2 -ta l -fn '-*-droid sans-medium-r-*-*-11-*-*-*-*-*-*'"
 
 	xmonad $ defaultConfig
 		{ manageHook 		= myManageHook <+> manageHook defaultConfig
 		, layoutHook 		= myLayoutHook
-		, logHook 		= dynamicLogWithPP $ xmobarPP
+		, logHook 		= dynamicLogWithPP $ defaultPP
 			{ ppOutput 	= hPutStrLn xmproc
-			, ppCurrent 	= xmobarColor myFocusedFGColor ""
-			, ppTitle 	= xmobarColor myFocusedFGColor "" . shorten 150
+			, ppCurrent 	= dzenColor myFocusedFGColor ""
+			, ppVisible = dzenColor myNormalFGColor ""
+			, ppTitle 	= dzenColor myFocusedFGColor "" . shorten 150
 			, ppSep		= "  |  "
 			, ppWsSep	= "  "
 			}
@@ -69,7 +70,7 @@ myNormalBorderColor	= myNormalBGColor
 myFocusedBorderColor	= myFocusedFGColor
 
 -- Layouts --
-myLayoutHook		= smartBorders $ avoidStruts (workspaceDir "~" (Tall 1 (3/100) (50/100)) ||| workspaceDir "~" (Mirror (Tall 1 (3/100) (85/100))) ||| workspaceDir "/mnt/media/Movies" (Full))
+myLayoutHook		= smartBorders $ avoidStruts (workspaceDir "~" (Tall 1 (3/100) (50/100)) ||| workspaceDir "~" (Mirror (Tall 1 (3/100) (85/100)))) ||| workspaceDir "/mnt/media/Movies" (Full)
 
 -- ManageHook --
 myManageHook = manageDocks <+> composeAll
@@ -77,6 +78,9 @@ myManageHook = manageDocks <+> composeAll
 	, title 		=? "irssi" 			--> doF (W.shift "irssi")
 	, title			=? "ncmpcpp"		--> doF (W.shift "music")
 	]
+
+-- LogHook --
+myLogHook = dynamicLog
 
 -- Prompt config --
 myPromptConfig :: XPConfig
