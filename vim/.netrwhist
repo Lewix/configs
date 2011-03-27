@@ -1,5 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_cnt =9
 let g:netrw_dirhist_1='/mnt/media/git/university/java/uk'
 let g:netrw_dirhist_2='/mnt/media/git/university/java/uk/ac'
 let g:netrw_dirhist_3='/mnt/media/git/university/java/uk/ac/cam'
@@ -8,3 +8,4 @@ let g:netrw_dirhist_5='/mnt/media/git/university/java/uk/ac/cam/lab61/tick1bak'
 let g:netrw_dirhist_6='/mnt/media/git/university/java/uk/ac/cam/lab61/tick1star'
 let g:netrw_dirhist_7='/home/lewis/.config/uzbl'
 let g:netrw_dirhist_8='/mnt/media/git/university/java/uk/ac/cam/lab61/game'
+let g:netrw_dirhist_9='/mnt/media/git/university/java/uk/ac/cam/lab61/textgame'

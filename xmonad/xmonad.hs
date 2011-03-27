@@ -3,6 +3,7 @@ import XMonad
 import IO(Handle,hPutStrLn)
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
+import XMonad.Hooks.UrgencyHook
 import XMonad.Util.Run(runInTerm, spawnPipe)
 import XMonad.Util.EZConfig(additionalKeys)
 import XMonad.Layout.NoBorders
@@ -26,9 +27,10 @@ myUrgentFGColor		= "#AE4747"
 -- Main --
 main = do
 	workspaceBar <- spawnPipe "dzen2 -ta l -fn '-*-droid sans-medium-r-*-*-11-*-*-*-*-*-*' -w 500"
-	timeBar <- spawnPipe "conky | dzen2 -ta r -fn '-*-droid sans-medium-r-*-*-11-*-*-*-*-*-*' -x 500"
+	timeBar <- spawnPipe "conky | dzen2 -ta r -sa r -fn '-*-droid sans-medium-r-*-*-11-*-*-*-*-*-*' -x 500"
 
-	xmonad $ defaultConfig
+	xmonad $ withUrgencyHook NoUrgencyHook
+	       $ defaultConfig
 		{ manageHook 		= myManageHook <+> manageHook defaultConfig
 		, layoutHook 		= myLayoutHook
 		, logHook 		= dynamicLogWithPP $ defaultPP
@@ -59,6 +61,7 @@ main = do
 		, ((mod4Mask, xK_i),			 runInTerm "-title irssi" "irssi")
 		, ((mod4Mask, xK_n),			 runInTerm "-title ncmpcpp" "ncmpcpp")
 		, ((mod4Mask, xK_d),			 changeDir myPromptConfig)
+		, ((mod4Mask, xK_BackSpace),       focusUrgent)
 		]
 -- Terminal --
 myTerminal = "urxvt"

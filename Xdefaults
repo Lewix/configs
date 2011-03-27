@@ -39,6 +39,9 @@ URxvt.geometry:		84x24
 URxvt*scrollTtyOutput:	false
 URxvt*scrollWithBuffer:	false
 
+! Bell
+urxvt.urgentOnBell: true
+
 ! Tab appearence
 URxvt.tabbed.tabbar-fg:	4
 URxvt.tabbed.tabbar-bg:	-1
