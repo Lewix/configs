@@ -26,8 +26,8 @@ myUrgentFGColor		= "#AE4747"
 
 -- Main --
 main = do
-	workspaceBar <- spawnPipe "dzen2 -ta l -fn '-*-droid sans-medium-r-*-*-11-*-*-*-*-*-*' -w 500"
-	timeBar <- spawnPipe "conky | dzen2 -ta r -sa r -fn '-*-droid sans-medium-r-*-*-11-*-*-*-*-*-*' -x 500"
+	workspaceBar <- spawnPipe myWorkSpaceBar
+	timeBar <- spawnPipe myTimeBar
 
 	xmonad $ withUrgencyHook NoUrgencyHook
 	       $ defaultConfig
@@ -63,6 +63,11 @@ main = do
 		, ((mod4Mask, xK_d),			 changeDir myPromptConfig)
 		, ((mod4Mask, xK_BackSpace),       focusUrgent)
 		]
+
+-- Dzen bars --
+myWorkSpaceBar = "dzen2 -bg '" ++ myNormalBGColor ++ "' -fg '" ++ myNormalFGColor ++ "' -ta l -fn '-*-droid sans-medium-r-*-*-11-*-*-*-*-*-*' -w 500"
+myTimeBar = "conky | dzen2 -bg '" ++ myNormalBGColor ++ "' -fg '" ++ myNormalFGColor ++ "' -ta r -sa r -fn '-*-droid sans-medium-r-*-*-11-*-*-*-*-*-*' -x 500"
+
 -- Terminal --
 myTerminal = "urxvt"
 
