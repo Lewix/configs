@@ -23,17 +23,20 @@ syntax on			" Syntax highlighting
 set pastetoggle=<F2>		" Toggle autoindenting
 set ofu=syntaxcomplete#Complete " Omni completion
 set background=dark
+set viminfo=%,'100,<100,s100,:100 " Restore buffers and whatnot
 
 " ### Colors ###
 colorscheme zellner	" BAD choice !!!
 
 " ### urxvt settings ###
-if &term =~ "rxvt-256color"
-  silent !echo -ne "\033]12;\#6f99b4\007"
-  let &t_SI="\033]12;\#ae4747\007"
-  let &t_EI="\033]12;\#6f99b4\007"
-  au VimLeave * silent !echo -ne "\033]12;\#6f99b4\007"
-endif
+silent !echo -ne "\033]12;\#6f99b4\007"
+let &t_SI="\033]12;\#ae4747\007"
+let &t_EI="\033]12;\#6f99b4\007"
+au VimLeave * silent !echo -ne "\033]12;\#6f99b4\007"
+
+" ### Read/Write viminfo ###
+nnoremap <leader>r :rv<CR>
+nnoremap <leader>w :wv<CR>
 
 " ### Status line ###
 set laststatus=2
