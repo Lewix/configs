@@ -27,6 +27,14 @@ set background=dark
 " ### Colors ###
 colorscheme zellner	" BAD choice !!!
 
+" ### urxvt settings ###
+if &term =~ "rxvt-256color"
+  silent !echo -ne "\033]12;\#6f99b4\007"
+  let &t_SI="\033]12;\#ae4747\007"
+  let &t_EI="\033]12;\#6f99b4\007"
+  au VimLeave * silent !echo -ne "\033]12;\#6f99b4\007"
+endif
+
 " ### Status line ###
 set laststatus=2
 set statusline=%#CursorIM#\"%F\"\ %#ErrorMsg#%m%#CursorIM#\ %y%=%l,%c\ %P
