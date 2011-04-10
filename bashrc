@@ -8,7 +8,7 @@ alias pwfproxy='ssh -D 8080 -fN lab61@linux.pwf.cl.cam.ac.uk'
 alias pwf='ssh lab61@linux.pwf.cl.cam.ac.uk'
 alias srcf='ssh lab61@shell.srcf.ucam.org'
 
-export PATH="$PATH:/home/lewis/.local/bin:/usr/local/sbin:/usr/lib/surfraw"
+export PATH="$PATH:/home/lewis/.local/bin:/usr/local/sbin:/usr/lib/surfraw:/usr/share/eclipse"
 export CDPATH="/mnt/media/bookmarks"
 export EDITOR="vim"
 export PACMAN="pacman-color"

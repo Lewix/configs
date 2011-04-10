@@ -8,6 +8,7 @@ import XMonad.Util.Run(runInTerm, spawnPipe)
 import XMonad.Util.EZConfig(additionalKeys)
 import XMonad.Layout.NoBorders
 import XMonad.Layout.WorkspaceDir
+import XMonad.Layout.Tabbed
 import XMonad.Actions.CycleWS
 import XMonad.Prompt
 import XMonad.Prompt.Directory
@@ -54,6 +55,7 @@ main = do
 		, ((mod4Mask, xK_g),			 AL.launchApp myPromptConfig "sr google")
 		, ((mod4Mask, xK_w),			 AL.launchApp myPromptConfig "sr wikipedia")
 		, ((mod4Mask, xK_u),			 AL.launchApp myPromptConfig "uzbl-browser")
+		, ((mod4Mask, xK_f),			 AL.launchApp myPromptConfig "firefox")
 		, ((mod4Mask, xK_m),       AL.launchApp myPromptConfig "mplayer")
 		, ((mod4Mask .|. shiftMask, xK_v), AL.launchApp myPromptConfig "urxvt -e vim")
 		, ((mod4Mask .|. shiftMask, xK_m), AL.launchApp myPromptConfig "mpd")
@@ -81,11 +83,26 @@ myNormalBorderColor	= myNormalBGColor
 myFocusedBorderColor	= myFocusedFGColor
 
 -- Layouts --
-myLayoutHook		= smartBorders $ avoidStruts (workspaceDir "~" (Tall 1 (3/100) (50/100)) ||| workspaceDir "~" (Mirror (Tall 1 (3/100) (85/100)))) ||| workspaceDir "/mnt/media/Movies" (Full)
+myLayoutHook		= smartBorders $ avoidStruts (workspaceDir "~" (Tall 1 (3/100) (50/100)) ||| workspaceDir "~" (Mirror (Tall 1 (3/100) (85/100))) ||| workspaceDir "~" (tabbedBottom shrinkText myTabbedTheme)) ||| workspaceDir "/mnt/media/Movies" (Full)
+myTabbedTheme = defaultTheme
+  { activeColor = myFocusedBGColor
+  , inactiveColor = myNormalBGColor
+  , urgentColor = myUrgentBGColor
+  , activeBorderColor = myFocusedFGColor
+  , inactiveBorderColor = myNormalBGColor
+  , urgentBorderColor = myUrgentBGColor
+  , activeTextColor = myFocusedFGColor
+  , inactiveTextColor = myNormalFGColor
+  , urgentTextColor = myUrgentFGColor
+  , fontName = "-*-droid sans-medium-r-*-*-11-*-*-*-*-*-*-*"
+  , decoWidth = myBorderWidth
+  , decoHeight = 17
+  }
 
 -- ManageHook --
 myManageHook = manageDocks <+> composeAll
 	[ className =? "Uzbl-core"	--> doF (W.shift "web")
+	, className =? "Firefox" --> doF (W.shift "web")
 	, title 		=? "irssi" 			--> doF (W.shift "irssi")
 	, title			=? "ncmpcpp"		--> doF (W.shift "music")
 	]
