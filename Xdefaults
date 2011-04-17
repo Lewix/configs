@@ -54,5 +54,5 @@ URxvt.tabbed.tab-bg:	-1
 URxvt.perl-ext-common:  default,matcher
 
 ! Clickable links
-URxvt.urlLauncher:	uzbl-browser
+URxvt.urlLauncher:	firefox
 URxvt.matcher.button:	1

@@ -1,6 +1,8 @@
 TEXT
+### Mail ###
+  ${if_match ${execpi 60 mail -H | grep '^.U' | wc -l} != 0}^fg(\#6F99B4)MAIL:^fg() ${execpi 60 mail -H | grep '^.U' | wc -l}  |${endif}#
 ### Battery level (if critical) ###
-  ${if_match ${battery_percent} != 0}${if_match ${battery_percent} <= 15}^fg(\#AE4747)BATT: ^fg(\#AE4747)${battery_percent}%  ^fg()|${endif}${endif}#
+  ${if_match ${battery_percent} != 0}${if_match ${battery_percent} <= 15}^fg(\#6F99B4)BATT: ^fg(\#AE4747)${battery_percent}%  ^fg()|${endif}${endif}#
 #
 ### Media Disk usage (if critical) ###
   ${if_match ${fs_used_perc /} >= 70}^fg(\#6F99B4)ROOT: ^fg(\#AE4747)${execpi 20 df -h / | tr -s ' ' | cut -d ' ' -f 4 | tail -n 1 | sed 's/[0-9A-Z]\{3\}/ &/'}  ^fg()|${endif}#
