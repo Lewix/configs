@@ -8,8 +8,8 @@ set mouse=a			" Use mouse in all cases
 set autoindent			" Automatic indenting
 set copyindent			" Copy previous indenting
 set expandtab     " Make tabs into spaces
-set tabstop=2			" Change tab size to two spaces
-set shiftwidth=2  " Change increment size to two spaces
+set tabstop=4			" Change tab size to two spaces
+set shiftwidth=4  " Change increment size to two spaces
 set showcmd			" Show command being typed
 set wildmode=longest,list,full " Base like completion
 set wildmenu			" Command completion list
@@ -26,17 +26,13 @@ set background=dark
 set viminfo=%,'100,<100,s100,:100 " Restore buffers and whatnot
 
 " ### Colors ###
-colorscheme zellner	" BAD choice !!!
+colorscheme zellnermod
 
 " ### urxvt settings ###
 silent !echo -ne "\033]12;\#6f99b4\007"
 let &t_SI="\033]12;\#ae4747\007"
 let &t_EI="\033]12;\#6f99b4\007"
 au VimLeave * silent !echo -ne "\033]12;\#6f99b4\007"
-
-" ### Read/Write viminfo ###
-nnoremap <leader>r :rv<CR>
-nnoremap <leader>w :wv<CR>
 
 " ### Status line ###
 set laststatus=2
@@ -45,8 +41,6 @@ set statusline=%#CursorIM#\"%F\"\ %#ErrorMsg#%m%#CursorIM#\ %y%=%l,%c\ %P
 " ### Mappings ###
 map <down> <ESC>:bn<CR>
 map <up> <ESC>:bp<CR>
-map <right> gt
-map <left> gT
 cmap w!! w !sudo tee % >/dev/null
 nnoremap <leader>/ :set invhlsearch<CR>
 map <silent> <leader>ev :e $MYVIMRC<CR>
@@ -101,5 +95,7 @@ let g:tex_flavor='latex'        " Set filetype of empty .tex files to 'latex'
 autocmd Filetype tex,latex set grepprg=grep\ -nH\ $*	" Set grep to always display file name
 autocmd Filetype tex,latex set wrapmargin=2 " Break lines for easier editing
 
-" ### Gundo ###
-nnoremap <leader>u :GundoToggle<CR>
+" ### Taglist ###
+let Tlist_Ctags_Cmd = "/usr/bin/ctags"
+let Tlist_WinWidth = 50
+map <left> :TlistToggle<CR>

@@ -7,3 +7,9 @@
 [submodule "vim/bundle/snipmate"]
 	path = vim/bundle/snipmate
 	url = https://github.com/msanders/snipmate.vim.git
+[submodule "vim/bundle/vim-taglist"]
+	path = vim/bundle/vim-taglist
+	url = git://github.com/mexpolk/vim-taglist.git
+[submodule "vim/bundle/syntastic"]
+	path = vim/bundle/syntastic
+	url = git://github.com/scrooloose/syntastic.git

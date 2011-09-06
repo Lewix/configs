@@ -6,9 +6,13 @@ import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.UrgencyHook
 import XMonad.Util.Run(runInTerm, spawnPipe)
 import XMonad.Util.EZConfig(additionalKeys)
+
 import XMonad.Layout.NoBorders
 import XMonad.Layout.WorkspaceDir
 import XMonad.Layout.Tabbed
+import XMonad.Layout.PerWorkspace
+import XMonad.Layout.Named
+
 import XMonad.Actions.CycleWS
 import XMonad.Prompt
 import XMonad.Prompt.Directory
@@ -32,7 +36,7 @@ main = do
 
 	xmonad $ withUrgencyHook NoUrgencyHook
 	       $ defaultConfig
-		{ manageHook 		= myManageHook <+> manageHook defaultConfig
+		{ manageHook 		= myManageHook
 		, layoutHook 		= myLayoutHook
 		, logHook 		= dynamicLogWithPP $ defaultPP
 			{ ppOutput 	= hPutStrLn workspaceBar
@@ -57,11 +61,11 @@ main = do
 		, ((mod4Mask, xK_u),			 AL.launchApp myPromptConfig "uzbl-browser")
 		, ((mod4Mask, xK_f),			 AL.launchApp myPromptConfig "firefox")
 		, ((mod4Mask, xK_m),       AL.launchApp myPromptConfig "mplayer")
-		, ((mod4Mask .|. shiftMask, xK_v), AL.launchApp myPromptConfig "urxvt -e vim")
+		, ((mod4Mask .|. shiftMask, xK_v), AL.launchApp myPromptConfig "urxvt -title vim -e vim")
 		, ((mod4Mask .|. shiftMask, xK_m), AL.launchApp myPromptConfig "mpd")
 		, ((mod4Mask, xK_v),			 runInTerm "-title vim" "vim")
 		, ((mod4Mask, xK_e),			 runInTerm "-title mutt" "mutt")
-		, ((mod4Mask, xK_i),			 runInTerm "-title irssi" "irssi")
+		, ((mod4Mask, xK_i),			 runInTerm "-title irssi" "irssi & urxvt -title nicklist -e cat ~/.irssi/nicklistfifo")
 		, ((mod4Mask, xK_n),			 runInTerm "-title ncmpcpp" "ncmpcpp")
 		, ((mod4Mask, xK_d),			 changeDir myPromptConfig)
 		, ((mod4Mask, xK_BackSpace),       focusUrgent)
@@ -82,8 +86,24 @@ myBorderWidth		= 2
 myNormalBorderColor	= myNormalBGColor
 myFocusedBorderColor	= myFocusedFGColor
 
--- Layouts --
-myLayoutHook		= smartBorders $ avoidStruts (workspaceDir "~" (Tall 1 (3/100) (50/100)) ||| workspaceDir "~" (Mirror (Tall 1 (3/100) (85/100))) ||| workspaceDir "~" (tabbedBottom shrinkText myTabbedTheme)) ||| workspaceDir "/mnt/media/Movies" (Full)
+-- Layout hook --
+myLayoutHook = workspaceDir "~" $
+               onWorkspace "irssi" irssiLayouts $
+               onWorkspace "web" webLayouts $
+               myTall ||| myMirrorTall ||| myFull ||| myTabbed
+
+-- Layouts
+myIncrement = 3/100
+myTall =       smartBorders $ avoidStruts $ Tall 1 myIncrement (50/100)
+myMirrorTall = smartBorders $ avoidStruts $ Mirror $ Tall 1 myIncrement (85/100)
+myTabbed =     named "Tabbed " (smartBorders $ avoidStruts $ tabbedBottom shrinkText myTabbedTheme)
+myFull =       smartBorders $ Full
+
+-- Per workspace layouts
+irssiLayouts = smartBorders $ avoidStruts (Tall 1 (3/100) (90/100) ||| Full)
+webLayouts = myTabbed ||| myTall ||| myMirrorTall ||| myFull
+
+-- Tabbed theme
 myTabbedTheme = defaultTheme
   { activeColor = myFocusedBGColor
   , inactiveColor = myNormalBGColor
@@ -103,6 +123,7 @@ myTabbedTheme = defaultTheme
 myManageHook = manageDocks <+> composeAll
 	[ className =? "Uzbl-core"	--> doF (W.shift "web")
 	, className =? "Firefox" --> doF (W.shift "web")
+	, title     =? "nicklist" --> doF (W.shift "irssi")
 	, title 		=? "irssi" 			--> doF (W.shift "irssi")
 	, title			=? "ncmpcpp"		--> doF (W.shift "music")
 	]

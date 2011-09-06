@@ -17,6 +17,7 @@ eval `keychain --eval --agents ssh id_rsa &> /dev/null`
 export PATH="$PATH:/home/lewis/.local/bin:/usr/local/sbin:/usr/lib/surfraw:/usr/share/eclipse"
 export CDPATH="/mnt/media/bookmarks"
 export HISTCONTROL=ignoredups:ignorespace
+export PROMPT_COMMAND='echo -ne "\033]0;$(pwd)\007"'
 
 # Programs
 export EDITOR="vim"
@@ -39,3 +40,4 @@ title_bar()
 trap title_bar DEBUG
 export PS1='[\[\e[0;34m\]\u@\h\[\e[m\] \W]\$ '
 export PS2='\[\e[0;31m\]>\[\e[m\] '
+clear
