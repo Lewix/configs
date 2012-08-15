@@ -13,3 +13,12 @@
 [submodule "vim/bundle/syntastic"]
 	path = vim/bundle/syntastic
 	url = git://github.com/scrooloose/syntastic.git
+[submodule "vim/bundle/vimclojure"]
+	path = vim/bundle/vimclojure
+	url = git://github.com/vim-scripts/VimClojure.git
+[submodule "vim/bundle/vim-slime"]
+	path = vim/bundle/vim-slime
+	url = git://github.com/jpalardy/vim-slime.git
+[submodule "vim/bundle/slimv"]
+	path = vim/bundle/slimv
+	url = git://github.com/vim-scripts/slimv.vim.git
