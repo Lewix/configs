@@ -22,6 +22,7 @@ set hidden			" Make buffers hide instead of closing
 syntax on			" Syntax highlighting
 set pastetoggle=<F2>		" Toggle autoindenting
 set ofu=syntaxcomplete#Complete " Omni completion
+set completeopt=menu " No annoying scratch window
 set background=dark
 set viminfo=%,'100,<100,s100,:100 " Restore buffers and whatnot
 
@@ -60,10 +61,12 @@ set matchpairs+=<:>		" Also show matching < and >
 map <silent> <leader>hs :!ghc --make % && %:p:r<CR>
 map <silent> <leader>jc :!javac %<CR>
 
-" =============
-" Java settings
-" =============
-
+" ================
+" Clojure settings
+" ================
+let g:slimv_swank_clojure = "!urxvt -e lein swank&"
+let g:paredit_mode = 1
+let g:vimclojure#ParenRainbow = 1
 
 " ===============
 " Python settings
@@ -84,12 +87,11 @@ autocmd FileType python set omnifunc=pythoncomplete"Complete    " Code completio
 " ===============
 " ### Pathogen ###
 " Use pathogen to include plugins in the ~/.vim/bundle directory
-"call pathogen#helptags()
-call pathogen#runtime_append_all_bundles()
+call pathogen#infect()
 
 " ### Latex-Suite ###
 filetype plugin on		" Activate Latex-Suite for Latex files
-filetype indent on              " Enable indenting
+filetype indent on      " Enable indenting
 set grepprg=grep\ -nH\ $*
 let g:tex_flavor='latex'        " Set filetype of empty .tex files to 'latex'
 autocmd Filetype tex,latex set grepprg=grep\ -nH\ $*	" Set grep to always display file name
