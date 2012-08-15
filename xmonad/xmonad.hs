@@ -38,6 +38,7 @@ main = do
 	       $ defaultConfig
 		{ manageHook 		= myManageHook
 		, layoutHook 		= myLayoutHook
+		, focusFollowsMouse = False
 		, logHook 		= dynamicLogWithPP $ defaultPP
 			{ ppOutput 	= hPutStrLn workspaceBar
 			, ppCurrent 	= dzenColor myFocusedFGColor ""
@@ -57,14 +58,14 @@ main = do
 		[ ((mod4Mask, xK_p),			 spawn "dmenu_run -i -nb '#202020' -nf '#DDDDDD' -sb '#202020' -sf '#6F99B4' -fn '-*-droid sans-medium-r-*-*-11-*-*-*-*-*-*-*'")
 		, ((mod4Mask, xK_Tab),		 toggleWS)
 		, ((mod4Mask, xK_g),			 AL.launchApp myPromptConfig "sr google")
-		, ((mod4Mask, xK_w),			 AL.launchApp myPromptConfig "sr wikipedia")
+		, ((mod4Mask, xK_a),			 AL.launchApp myPromptConfig "sr wikipedia")
 		, ((mod4Mask, xK_u),			 AL.launchApp myPromptConfig "uzbl-browser")
-		, ((mod4Mask, xK_f),			 AL.launchApp myPromptConfig "firefox")
+		, ((mod4Mask, xK_f),			 AL.launchApp myPromptConfig "chromium")
 		, ((mod4Mask, xK_m),       AL.launchApp myPromptConfig "mplayer")
 		, ((mod4Mask .|. shiftMask, xK_v), AL.launchApp myPromptConfig "urxvt -title vim -e vim")
 		, ((mod4Mask .|. shiftMask, xK_m), AL.launchApp myPromptConfig "mpd")
 		, ((mod4Mask, xK_v),			 runInTerm "-title vim" "vim")
-		, ((mod4Mask, xK_e),			 runInTerm "-title mutt" "mutt")
+		, ((mod4Mask, xK_r),			 runInTerm "-title mutt" "mutt")
 		, ((mod4Mask, xK_i),			 runInTerm "-title irssi" "irssi & urxvt -title nicklist -e cat ~/.irssi/nicklistfifo")
 		, ((mod4Mask, xK_n),			 runInTerm "-title ncmpcpp" "ncmpcpp")
 		, ((mod4Mask, xK_d),			 changeDir myPromptConfig)
@@ -97,7 +98,7 @@ myIncrement = 3/100
 myTall =       smartBorders $ avoidStruts $ Tall 1 myIncrement (50/100)
 myMirrorTall = smartBorders $ avoidStruts $ Mirror $ Tall 1 myIncrement (85/100)
 myTabbed =     named "Tabbed " (smartBorders $ avoidStruts $ tabbedBottom shrinkText myTabbedTheme)
-myFull =       smartBorders $ Full
+myFull =       noBorders $ Full
 
 -- Per workspace layouts
 irssiLayouts = smartBorders $ avoidStruts (Tall 1 (3/100) (90/100) ||| Full)
