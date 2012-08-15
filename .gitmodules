@@ -1,24 +1,32 @@
 [submodule "vim/bundle/snipMate"]
 	path = vim/bundle/snipMate
 	url = git://github.com/msanders/snipmate.vim.git
+    ignore = dirty
 [submodule "vim/bundle/fugitive"]
 	path = vim/bundle/fugitive
 	url = http://github.com/tpope/vim-fugitive.git
+    ignore = dirty
 [submodule "vim/bundle/snipmate"]
 	path = vim/bundle/snipmate
 	url = https://github.com/msanders/snipmate.vim.git
+    ignore = dirty
 [submodule "vim/bundle/vim-taglist"]
 	path = vim/bundle/vim-taglist
 	url = git://github.com/mexpolk/vim-taglist.git
+    ignore = dirty
 [submodule "vim/bundle/syntastic"]
 	path = vim/bundle/syntastic
 	url = git://github.com/scrooloose/syntastic.git
+    ignore = dirty
 [submodule "vim/bundle/vimclojure"]
 	path = vim/bundle/vimclojure
 	url = git://github.com/vim-scripts/VimClojure.git
+    ignore = dirty
 [submodule "vim/bundle/vim-slime"]
 	path = vim/bundle/vim-slime
 	url = git://github.com/jpalardy/vim-slime.git
+    ignore = dirty
 [submodule "vim/bundle/slimv"]
 	path = vim/bundle/slimv
 	url = git://github.com/vim-scripts/slimv.vim.git
+    ignore = dirty
