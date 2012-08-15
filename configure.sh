@@ -25,6 +25,12 @@ done
 # Install stuff
 if [ $(uname -r | sed 's/.*ARCH/ARCH/') == 'ARCH' ]
 then
-    echo "$TITLE Installing $PROGRAMS"
-    yaourt -S $PROGRAMS
+    read -p "Install $PROGRAMS (y/[n])" choice
+    case "$choice" in
+        y|Y)
+            echo "$TITLE Installing $PROGRAMS"
+            yaourt -S $PROGRAMS
+            ;;
+        *) ;;
+    esac
 fi
