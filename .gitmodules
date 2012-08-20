@@ -30,3 +30,6 @@
 	path = vim/bundle/slimv
 	url = git://github.com/vim-scripts/slimv.vim.git
     ignore = dirty
+[submodule "vim/bundle/notes"]
+	path = vim/bundle/notes
+	url = git://github.com/tinyseraph/notes.vim.git
