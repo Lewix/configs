@@ -71,16 +71,8 @@ let g:vimclojure#ParenRainbow = 1
 " ===============
 " Python settings
 " ===============
-" Jump to python class libraries
-"python << EOF
-"import os
-"import sys
-"import vim
-"for p in sys.path:
-    "if os.path.isdir(p):
-        "vim.command(r"set path+=%s" % (p.replace(" ", r"\ ")))
-"EOF
-autocmd FileType python set omnifunc=pythoncomplete"Complete    " Code completion
+autocmd FileType python set omnifunc=pythoncomplete"Complete
+autocmd FileType python set tags+=/mnt/media/git/personal/python/tags
 
 " ===============
 " Plugin settings
@@ -96,6 +88,10 @@ set grepprg=grep\ -nH\ $*
 let g:tex_flavor='latex'        " Set filetype of empty .tex files to 'latex'
 autocmd Filetype tex,latex set grepprg=grep\ -nH\ $*	" Set grep to always display file name
 autocmd Filetype tex,latex set wrapmargin=2 " Break lines for easier editing
+
+" ### Notes ###
+let g:notes_directory = "~/.notes"
+let g:notes_shadowdir = "~/.notes/templates"
 
 " ### Taglist ###
 let Tlist_Ctags_Cmd = "/usr/bin/ctags"
