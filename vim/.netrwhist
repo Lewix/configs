@@ -1,6 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
-let g:netrw_dirhist_1='/var/abs/local'
-let g:netrw_dirhist_2='/var/abs/extra/bash-completion'
-let g:netrw_dirhist_3='/etc/network.d'
-let g:netrw_dirhist_4='/etc'
+let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_1='/etc/network.d/interfaces'
+let g:netrw_dirhist_2='/etc/network.d'
+let g:netrw_dirhist_3='/etc'

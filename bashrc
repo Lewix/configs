@@ -9,14 +9,19 @@
 alias ls='ls --color=auto'
 alias pwfproxy='ssh -D 8080 -fN lab61@linux.pwf.cl.cam.ac.uk'
 alias pwf='ssh lab61@linux.pwf.cl.cam.ac.uk'
-alias srcf='mosh lab61@shell.srcf.ucam.org'
+alias srcf='ssh lab61@shell.srcf.ucam.org'
 alias gcw='gcc -std=c99 -Wall --pedantic'
 alias slime='screen -S clj clj'
 
 eval `keychain --eval --agents ssh id_rsa &> /dev/null`
 
+### Temporary aliases ###
+
+alias plan='note "Part II Project plan"'
+
 ### Environment variables ###
 
+export PYTHONPATH="$PYTHONPATH:/mnt/media/git/personal/python/evernote-sdk-python/lib:/mnt/media/git/personal/python/evernote-cli/evernote_cli"
 export PATH="$PATH:/home/lewis/.local/bin:/usr/local/sbin:/usr/lib/surfraw:/usr/share/eclipse"
 export CDPATH="/mnt/media/bookmarks"
 export HISTCONTROL=ignoredups:ignorespace
