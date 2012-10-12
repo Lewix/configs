@@ -88,6 +88,7 @@ set grepprg=grep\ -nH\ $*
 let g:tex_flavor='latex'        " Set filetype of empty .tex files to 'latex'
 autocmd Filetype tex,latex set grepprg=grep\ -nH\ $*	" Set grep to always display file name
 autocmd Filetype tex,latex set wrapmargin=2 " Break lines for easier editing
+autocmd Filetype tex,latex set nofoldenable
 
 nnoremap <leader>l :!srcftex %<CR>
 
