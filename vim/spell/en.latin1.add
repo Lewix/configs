@@ -1,0 +1,11 @@
+MonoDevelop
+ReSharper
+AST
+API
+RefactoringOptions
+IRefactorer
+INRefactoryASTProvider
+IResolver
+refactor
+FsCheck
+IDE
