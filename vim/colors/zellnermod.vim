@@ -25,6 +25,7 @@ hi Tag term=bold ctermfg=DarkGreen guifg=DarkGreen
 hi Error term=reverse ctermfg=15 ctermbg=9 guibg=Red guifg=White
 hi Todo term=standout ctermbg=Yellow ctermfg=Black guifg=Blue guibg=Yellow
 hi  StatusLine term=bold,reverse cterm=NONE ctermfg=White ctermbg=Blue gui=NONE guifg=Yellow guibg=DarkGray
+hi SpellBad term=reverse ctermbg=red ctermfg=white
 hi! link MoreMsg Comment
 hi! link ErrorMsg Visual
 hi! link WarningMsg ErrorMsg
