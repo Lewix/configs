@@ -12,6 +12,7 @@ alias pwf='ssh lab61@linux.pwf.cl.cam.ac.uk'
 alias srcf='ssh lab61@shell.srcf.ucam.org'
 alias gcw='gcc -std=c99 -Wall --pedantic'
 alias slime='screen -S clj clj'
+alias emacs='emacs -nw'
 
 eval `keychain --eval --agents ssh id_rsa &> /dev/null`
 
