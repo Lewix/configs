@@ -65,7 +65,6 @@ main = do
 		, ((mod4Mask .|. shiftMask, xK_v), AL.launchApp myPromptConfig "urxvt -title vim -e vim")
 		, ((mod4Mask .|. shiftMask, xK_m), AL.launchApp myPromptConfig "mpd")
 		, ((mod4Mask, xK_v),			 runInTerm "-title vim" "vim")
-		, ((mod4Mask, xK_r),			 runInTerm "-title mutt" "mutt")
 		, ((mod4Mask, xK_i),			 runInTerm "-title irssi" "irssi & urxvt -title nicklist -e cat ~/.irssi/nicklistfifo")
 		, ((mod4Mask, xK_n),			 runInTerm "-title ncmpcpp" "ncmpcpp")
 		, ((mod4Mask, xK_d),			 changeDir myPromptConfig)
