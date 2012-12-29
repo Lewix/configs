@@ -90,7 +90,8 @@ autocmd Filetype tex,latex set grepprg=grep\ -nH\ $*	" Set grep to always displa
 autocmd Filetype tex,latex set wrapmargin=2 " Break lines for easier editing
 autocmd Filetype tex,latex set nofoldenable
 
-nnoremap <leader>l :!srcftex %<CR>
+nnoremap <leader>l :w<CR>:!srcftex %<CR>
+nnoremap <leader>p :!mupdf %:r.pdf &<CR><CR>
 
 
 " ### Notes ###

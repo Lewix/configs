@@ -9,3 +9,6 @@ IResolver
 refactor
 FsCheck
 IDE
+refactorings
+lexing
+ASTs
