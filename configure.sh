@@ -3,7 +3,7 @@
 TITLE="configure:"
 CONFIGS_DIR=$(readlink -f $(dirname $0))
 
-FILES="bashrc conkyrc mplayer toprc vim vimrc Xdefaults xmonad"
+FILES="bashrc conkyrc mplayer toprc vim vimrc Xdefaults xmonad gitconfig"
 PROGRAMS="conky-cli xmonad rxvt-unicode ttf-droid"
 
 # Create soft links

@@ -1,0 +1,7 @@
+[user]
+	name = Lewis Brown
+	email = lewix7@hotmail.com
+[alias]
+	a = add
+	c = commit
+	s = status
