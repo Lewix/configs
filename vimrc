@@ -5,6 +5,7 @@
 set nocompatible		" Disable compatible mode
 set shortmess+=I		" Disable the welcome screen
 set mouse=a			" Use mouse in all cases
+set guioptions-=T
 set autoindent			" Automatic indenting
 set copyindent			" Copy previous indenting
 set expandtab     " Make tabs into spaces
@@ -27,7 +28,7 @@ set background=dark
 set viminfo=%,'100,<100,s100,:100 " Restore buffers and whatnot
 
 " ### Colors ###
-colorscheme zellnermod
+colorscheme desert
 
 " ### urxvt settings ###
 silent !echo -ne "\033]12;\#6f99b4\007"
