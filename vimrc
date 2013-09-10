@@ -61,44 +61,12 @@ set matchpairs+=<:>		" Also show matching < and >
 map <silent> <leader>hs :!ghc --make % && %:p:r<CR>
 map <silent> <leader>jc :!javac %<CR>
 
-" ================
-" Clojure settings
-" ================
-let g:slimv_swank_clojure = "!urxvt -e lein swank&"
-let g:paredit_mode = 1
-let g:vimclojure#ParenRainbow = 1
-
 " ===============
 " Python settings
 " ===============
 autocmd FileType python set omnifunc=pythoncomplete"Complete
 autocmd FileType python set tags+=/mnt/media/git/personal/python/tags
 
-" ===============
-" Plugin settings
-" ===============
 " ### Pathogen ###
 " Use pathogen to include plugins in the ~/.vim/bundle directory
 call pathogen#infect()
-
-" ### Latex-Suite ###
-filetype plugin on		" Activate Latex-Suite for Latex files
-filetype indent on      " Enable indenting
-set grepprg=grep\ -nH\ $*
-let g:tex_flavor='latex'        " Set filetype of empty .tex files to 'latex'
-autocmd Filetype tex,latex set grepprg=grep\ -nH\ $*	" Set grep to always display file name
-autocmd Filetype tex,latex set wrapmargin=2 " Break lines for easier editing
-autocmd Filetype tex,latex set nofoldenable
-
-nnoremap <leader>l :w<CR>:!srcftex %<CR>
-nnoremap <leader>p :!mupdf %:r.pdf &<CR><CR>
-
-
-" ### Notes ###
-let g:notes_directory = "~/.notes"
-let g:notes_shadowdir = "~/.notes/templates"
-
-" ### Taglist ###
-let Tlist_Ctags_Cmd = "/usr/bin/ctags"
-let Tlist_WinWidth = 50
-map <left> :TlistToggle<CR>
