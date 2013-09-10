@@ -1,6 +1,5 @@
 -- Imports --
 import XMonad
-import IO(Handle,hPutStrLn)
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.UrgencyHook
@@ -89,7 +88,6 @@ myFocusedBorderColor	= myFocusedFGColor
 -- Layout hook --
 myLayoutHook = workspaceDir "~" $
                onWorkspace "irssi" irssiLayouts $
-               onWorkspace "web" webLayouts $
                myTall ||| myMirrorTall ||| myFull ||| myTabbed
 
 -- Layouts
@@ -101,7 +99,6 @@ myFull =       noBorders $ Full
 
 -- Per workspace layouts
 irssiLayouts = smartBorders $ avoidStruts (Tall 1 (3/100) (90/100) ||| Full)
-webLayouts = myTabbed ||| myTall ||| myMirrorTall ||| myFull
 
 -- Tabbed theme
 myTabbedTheme = defaultTheme
