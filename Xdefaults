@@ -51,8 +51,13 @@ URxvt.tabbed.tab-bg:	-1
 
 ! Perl extensions
 ! URxvt.perl-ext-common:  default,tabbed,matcher
-URxvt.perl-ext-common:  default,matcher
+URxvt.perl-ext-common:  default,matcher,clipboard
 
 ! Clickable links
 URxvt.urlLauncher:	chromium
 URxvt.matcher.button:	1
+
+! Clipboard
+URxvt.keysym.M-c:   perl:clipboard:copy
+URxvt.keysym.M-v:   perl:clipboard:paste
+URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
