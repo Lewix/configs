@@ -5,3 +5,6 @@
 	a = add
 	c = commit
 	s = status
+[core]
+	editor = vim
+	excludesfile = ~/.gitignore

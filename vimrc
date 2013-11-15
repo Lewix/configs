@@ -9,8 +9,8 @@ set guioptions-=T
 set autoindent			" Automatic indenting
 set copyindent			" Copy previous indenting
 set expandtab     " Make tabs into spaces
-set tabstop=4			" Change tab size to two spaces
-set shiftwidth=4  " Change increment size to two spaces
+set tabstop=2			" Change tab size to two spaces
+set shiftwidth=2  " Change increment size to two spaces
 set showcmd			" Show command being typed
 set wildmode=longest,list,full " Base like completion
 set wildmenu			" Command completion list
@@ -25,7 +25,7 @@ set pastetoggle=<F2>		" Toggle autoindenting
 set ofu=syntaxcomplete#Complete " Omni completion
 set completeopt=menu " No annoying scratch window
 set background=dark
-set viminfo=%,'100,<100,s100,:100 " Restore buffers and whatnot
+"set viminfo=%,'100,<100,s100,:100 " Restore buffers and whatnot
 
 " ### Colors ###
 colorscheme desert
@@ -62,6 +62,10 @@ set matchpairs+=<:>		" Also show matching < and >
 map <silent> <leader>hs :!ghc --make % && %:p:r<CR>
 map <silent> <leader>jc :!javac %<CR>
 
+
+" ### Searching ###
+map <silent> <leader>g :grep -rI <C-R><C-W> *<CR><CR><C-O>:copen<CR>
+
 " ===============
 " Python settings
 " ===============
@@ -71,3 +75,8 @@ autocmd FileType python set tags+=/mnt/media/git/personal/python/tags
 " ### Pathogen ###
 " Use pathogen to include plugins in the ~/.vim/bundle directory
 call pathogen#infect()
+
+
+" vimdiff stuff
+map <silent> <leader>2 :diffget //2<CR>:diffupdate<CR>
+map <silent> <leader>3 :diffget //3<CR>:diffupdate<CR>

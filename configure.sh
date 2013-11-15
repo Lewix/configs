@@ -1,9 +1,9 @@
 #!/bin/bash
 
 TITLE="configure:"
-CONFIGS_DIR=$(readlink -f $(dirname $0))
+CONFIGS_DIR=$(pwd)
 
-FILES="bashrc conkyrc mplayer toprc vim vimrc Xdefaults xmonad gitconfig"
+FILES="bashrc conkyrc mplayer toprc vim vimrc Xdefaults xmonad gitconfig zshrc"
 PROGRAMS="conky-cli xmonad rxvt-unicode ttf-droid"
 
 # Create soft links
