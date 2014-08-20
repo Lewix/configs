@@ -1,7 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
-let g:netrw_dirhist_1='/etc/network.d/interfaces'
-let g:netrw_dirhist_2='/etc/network.d'
-let g:netrw_dirhist_3='/etc'
-let g:netrw_dirhist_4='/mnt/media/git/university/personalproj/fsharp-ctags/ctags-5.8'
-let g:netrw_dirhist_5='/mnt/media/git/university/personalproj/fsharp-ctags'

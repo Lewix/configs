@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh configuration.
-ZSH=/usr/share/oh-my-zsh/
+ZSH=/Users/lewis/Projects/oh-my-zsh/
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -50,5 +50,8 @@ GIT_EDITOR=vim
 CDPATH="/mnt/media/bookmarks"
 PATH="$PATH:/home/lewis/.local/bin"
 [[ -s /etc/profile.d/autojump.zsh ]] && . /etc/profile.d/autojump.zsh
+[[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
+
 
 alias mo="ssh lewis@128.178.116.140"
+alias v='gvim -S ~/Projects/sessions/$(pwd | xargs basename)'

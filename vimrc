@@ -1,12 +1,10 @@
-" ================
-" General settings
-" ================
 " ### Basic settings ###
 set nocompatible		" Disable compatible mode
 set shortmess+=I		" Disable the welcome screen
 set mouse=a			" Use mouse in all cases
 set guioptions-=T
 set autoindent			" Automatic indenting
+set smartindent
 set copyindent			" Copy previous indenting
 set expandtab     " Make tabs into spaces
 set tabstop=2			" Change tab size to two spaces
@@ -26,9 +24,7 @@ set ofu=syntaxcomplete#Complete " Omni completion
 set completeopt=menu " No annoying scratch window
 set background=dark
 "set viminfo=%,'100,<100,s100,:100 " Restore buffers and whatnot
-
-" ### Colors ###
-colorscheme desert
+"autocmd QuickFixCmdPost *grep* lwindow " Open quickfix window after grep
 
 " ### urxvt settings ###
 silent !echo -ne "\033]12;\#6f99b4\007"
@@ -47,36 +43,49 @@ cmap w!! w !sudo tee % >/dev/null
 nnoremap <leader>/ :set invhlsearch<CR>
 map <silent> <leader>ev :e $MYVIMRC<CR>
 map <silent> <leader>sv :so $MYVIMRC<CR>
+map <silent> <leader>bd :bp\|bd #<CR>
+map <C-n> :NERDTreeToggle<CR>
+map <leader>m :make!<CR><CR>
 
 " ### Search settings ###
 set incsearch			" Search as you type
 set ignorecase			" Ignore case in searches
 set smartcase                   " Upper-case sensitive search
+" # Grep #
+map <silent> <leader>g :Glgrep <cword> <CR><CR><C-O>
 
 " ### Matching bracket settings ###
 set showmatch			" Show matching brackets
 set mat=5			" Show matching brackets for 0.5 seconds
 set matchpairs+=<:>		" Also show matching < and >
 
-" ### Compilers ###
-map <silent> <leader>hs :!ghc --make % && %:p:r<CR>
-map <silent> <leader>jc :!javac %<CR>
-
-
-" ### Searching ###
-map <silent> <leader>g :grep -rI <C-R><C-W> *<CR><CR><C-O>:copen<CR>
-
-" ===============
-" Python settings
-" ===============
+" ### Python settings ###
 autocmd FileType python set omnifunc=pythoncomplete"Complete
 autocmd FileType python set tags+=/mnt/media/git/personal/python/tags
+
+" ### Scala settings ###
+autocmd FileType scala set errorformat=[error]\ %f:%l:\ %m " Error format for Scala error messages
+autocmd FileType scala set makeprg=cat\ ~/Projects/errors " :make reads errors from ~/Projects/errors
+autocmd FileType scala set wildignore+=*class,*/project/target/*,*/target/*
+nmap <leader>t :Glgrep -E "(val\|var\|class\|trait\|object\|def\|package) <cword>" <CR><CR>
 
 " ### Pathogen ###
 " Use pathogen to include plugins in the ~/.vim/bundle directory
 call pathogen#infect()
 
+" ### CtrlP ###
+let g:ctrlp_cmd = 'CtrlPBuffer'
 
-" vimdiff stuff
+" ### vimdiff ###
 map <silent> <leader>2 :diffget //2<CR>:diffupdate<CR>
 map <silent> <leader>3 :diffget //3<CR>:diffupdate<CR>
+
+" ### Colors ###
+colorscheme solarized
+set visualbell
+
+" ### Session management ###
+map <silent> <leader>s :execute 'mksession! ~/Projects/sessions/'.fnamemodify('.',':p:h:t')<CR>
+if argc() == 0
+  cd ~/Projects/sessions
+endif
