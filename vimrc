@@ -52,7 +52,7 @@ set incsearch			" Search as you type
 set ignorecase			" Ignore case in searches
 set smartcase                   " Upper-case sensitive search
 " # Grep #
-map <silent> <leader>g :Glgrep <cword> <CR><CR><C-O>
+map <silent> <leader>g :Ggrep <cword> <CR><CR><C-O>
 
 " ### Matching bracket settings ###
 set showmatch			" Show matching brackets
@@ -67,7 +67,7 @@ autocmd FileType python set tags+=/mnt/media/git/personal/python/tags
 autocmd FileType scala set errorformat=[error]\ %f:%l:\ %m " Error format for Scala error messages
 autocmd FileType scala set makeprg=cat\ ~/Projects/errors " :make reads errors from ~/Projects/errors
 autocmd FileType scala set wildignore+=*class,*/project/target/*,*/target/*
-nmap <leader>t :Glgrep -E "(val\|var\|class\|trait\|object\|def\|package) <cword>" <CR><CR>
+nmap <leader>t :Ggrep -E "(val\|var\|class\|trait\|object\|def\|package) <cword>" <CR><CR>
 
 " ### Pathogen ###
 " Use pathogen to include plugins in the ~/.vim/bundle directory
@@ -85,7 +85,7 @@ colorscheme solarized
 set visualbell
 
 " ### Session management ###
-map <silent> <leader>s :execute 'mksession! ~/Projects/sessions/'.fnamemodify('.',':p:h:t')<CR>
+map <silent> <leader>ss :execute 'mksession! ~/Projects/sessions/'.fnamemodify('.',':p:h:t')<CR>
 if argc() == 0
   cd ~/Projects/sessions
 endif
