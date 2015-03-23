@@ -1,8 +1,6 @@
-git clone https://github.com/Lewix/configs
 git clone https://github.com/vim-scripts/errormarker.vim.git
 git clone https://github.com/kongo2002/fsharp-vim.git
 git clone https://github.com/scrooloose/nerdtree.git
-git clone https://github.com/Lewix/configs
 git clone https://github.com/tpope/vim-fugitive.git
 git clone https://github.com/derekwyatt/vim-scala.git
 git clone https://github.com/milkypostman/vim-togglelist.git
