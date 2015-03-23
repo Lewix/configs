@@ -26,6 +26,22 @@ set background=dark
 "set viminfo=%,'100,<100,s100,:100 " Restore buffers and whatnot
 "autocmd QuickFixCmdPost *grep* lwindow " Open quickfix window after grep
 
+" ### Plugins ###
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'tpope/vim-fugitive'
+Plugin 'milkypostman/vim-togglelist'
+Plugin 'derekwyatt/vim-fswitch'
+Plugin 'scrooloose/nerdtree'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'kien/ctrlp.vim'
+Plugin 'vim-scripts/errormarker.vim'
+
+call vundle#end()
+filetype plugin indent on
+
 " ### urxvt settings ###
 silent !echo -ne "\033]12;\#6f99b4\007"
 let &t_SI="\033]12;\#ae4747\007"
@@ -68,10 +84,6 @@ autocmd FileType scala set errorformat=[error]\ %f:%l:\ %m " Error format for Sc
 autocmd FileType scala set makeprg=cat\ ~/Projects/errors " :make reads errors from ~/Projects/errors
 autocmd FileType scala set wildignore+=*class,*/project/target/*,*/target/*
 nmap <leader>t :Ggrep -E "(val\|var\|class\|trait\|object\|def\|package) <cword>" <CR><CR>
-
-" ### Pathogen ###
-" Use pathogen to include plugins in the ~/.vim/bundle directory
-call pathogen#infect()
 
 " ### CtrlP ###
 let g:ctrlp_cmd = 'CtrlPBuffer'
